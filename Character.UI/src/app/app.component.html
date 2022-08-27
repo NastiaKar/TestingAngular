@@ -1,0 +1,22 @@
+<button (click)="initNewCharacter()">Create New Character</button>
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Where From</th>
+    <th></th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let character of characters">
+    <td>{{ character.name }}</td>
+    <td>{{ character.firstName }}</td>
+    <td>{{ character.lastName }}</td>
+    <td>{{ character.whereFrom }}</td>
+    <td><button (click)="editCharacter(character)">Edit</button></td>
+  </tr>
+  </tbody>
+</table>
+
+<app-edit-character [character]="characterToEdit" (charactersUpdated)="updateCharacterList($event)"></app-edit-character>
